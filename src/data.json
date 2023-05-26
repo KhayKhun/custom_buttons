@@ -1,6 +1,6 @@
 {
     "borderRadius" : {
-        "editTypes" : [4,2,1],
+        "editTypes" : [4,2],
         "static" : [
             {"name" : "sm","value" : 2},
             {"name" : "md","value" : 6},

@@ -15,19 +15,33 @@ const DemoComponent = () => {
         : ''} 
       
         ${borderRadius.onEdit == 2 ?
-          borderRadius.topLeft != 0 && borderRadius.topRight != 0?
-              Number(borderRadius.topLeft) && Number(borderRadius.topRight) ?
-                `rounded-t-[${borderRadius.topLeft}${borderRadius.unit}]`
-              : 'rounded-t-'+borderRadius.topLeft 
+          borderRadius.topLeft != 0 ?
+              Number(borderRadius.topLeft)?
+                `rounded-tl-[${borderRadius.topLeft}${borderRadius.topLeftUnit}]`
+              : 'rounded-tl-'+borderRadius.topLeft 
           : '' 
-        : ''} 
+        : ''}
         ${borderRadius.onEdit == 2 ?
-          borderRadius.bottomLeft != 0 && borderRadius.bottomRight != 0?
-              Number(borderRadius.bottomLeft) && Number(borderRadius.bottomRight) ?
-                `rounded-b-[${borderRadius.bottomLeft}${borderRadius.unit}]`
-              : 'rounded-b-'+borderRadius.bottomLeft 
+          borderRadius.topRight != 0 ?
+              Number(borderRadius.topRight)?
+                `rounded-tr-[${borderRadius.topRight}${borderRadius.topRightUnit}]`
+              : 'rounded-tr-'+borderRadius.topRight 
           : '' 
-        : ''} 
+        : ''}
+        ${borderRadius.onEdit == 2 ?
+          borderRadius.bottomLeft != 0 ?
+              Number(borderRadius.bottomLeft)?
+                `rounded-bl-[${borderRadius.bottomLeft}${borderRadius.bottomLeftUnit}]`
+              : 'rounded-bl-'+borderRadius.bottomLeft 
+          : '' 
+        : ''}
+        ${borderRadius.onEdit == 2 ?
+          borderRadius.bottomRight != 0 ?
+              Number(borderRadius.bottomRight)?
+                `rounded-br-[${borderRadius.bottomRight}${borderRadius.bottomRightUnit}]`
+              : 'rounded-br-'+borderRadius.bottomRight 
+          : '' 
+        : ''}
         
 
         `}>{reduxStyles.innerText}</button>

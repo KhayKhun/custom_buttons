@@ -7,7 +7,6 @@ import FooterComponent from './components/essentials/footer'
 import DemoComponent from './components/essentials/demo'
 function App() {
   const reduxStyles = useSelector((state)=> state.styles);
-  const borderRadius = reduxStyles.borderRadius
   const dispatch = useDispatch()
 
   return (

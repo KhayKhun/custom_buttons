@@ -11,7 +11,11 @@ export const counterSlice = createSlice({
         topLeft : 0,
         topRight : 0,
         bottomLeft : 0,
-        bottomRight : 0,
+        bottomRight : 'px',
+        topLeftUnit : 'px',
+        topRightUnit : 'px',
+        bottomLeftUnit : 'px',
+        bottomRightUnit : 'px',
     },
   },
   reducers: {
@@ -24,21 +28,29 @@ export const counterSlice = createSlice({
       state.borderRadius.topRight = action.payload
       state.borderRadius.bottomRight = action.payload
     },
-    updateBorderRadiusT: (state,action) => {
+    updateBorderRadiusTL: (state,action) => {
       state.borderRadius.topLeft = action.payload
+    },
+    updateBorderRadiusTR: (state,action) => {
       state.borderRadius.topRight = action.payload
     },
-    updateBorderRadiusR: (state,action) => {
-      state.borderRadius.topRight = action.payload
+    updateBorderRadiusBL: (state,action) => {
+      state.borderRadius.bottomLeft = action.payload
+    },
+    updateBorderRadiusBR: (state,action) => {
       state.borderRadius.bottomRight = action.payload
     },
-    updateBorderRadiusB: (state,action) => {
-      state.borderRadius.bottomLeft = action.payload
-      state.borderRadius.bottomRight = action.payload
+    updateBorderRadiusTLUnit: (state,action) => {
+      state.borderRadius.topLeftUnit = action.payload
     },
-    updateBorderRadiusL: (state,action) => {
-      state.borderRadius.topLeft = action.payload
-      state.borderRadius.bottomLeft = action.payload
+    updateBorderRadiusTRUnit: (state,action) => {
+      state.borderRadius.topRightUnit = action.payload
+    },
+    updateBorderRadiusBLUnit: (state,action) => {
+      state.borderRadius.bottomLeftUnit = action.payload
+    },
+    updateBorderRadiusBRUnit: (state,action) => {
+      state.borderRadius.bottomRightUnit = action.payload
     },
     updateBorderRadiusEditTypes: (state,action) => {
       state.borderRadius.onEdit = action.payload
@@ -56,10 +68,14 @@ export const counterSlice = createSlice({
 export const { 
     updateInnerText,
     updateBorderRadius,
-    updateBorderRadiusT,
-    updateBorderRadiusR,
-    updateBorderRadiusB,
-    updateBorderRadiusL,
+    updateBorderRadiusTL,
+    updateBorderRadiusTR,
+    updateBorderRadiusBL,
+    updateBorderRadiusBR,
+    updateBorderRadiusTLUnit,
+    updateBorderRadiusTRUnit,
+    updateBorderRadiusBLUnit,
+    updateBorderRadiusBRUnit,
     updateBorderRadiusEditTypes,
     updateBorderRadiusUnit,
     updateTailwindCode 
