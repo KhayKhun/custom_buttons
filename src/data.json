@@ -1,0 +1,15 @@
+{
+    "borderRadius" : {
+        "editTypes" : [4,2,1],
+        "static" : [
+            {"name" : "sm","value" : 2},
+            {"name" : "md","value" : 6},
+            {"name" : "lg","value" : 8},
+            {"name" : "xl","value" : 12},
+            {"name" : "2xl","value" : 16},
+            {"name" : "3xl","value" : 24},
+            {"name" : "full","value" : 9999}
+        ],
+        "custom" : ["px","%"]
+    }
+}
