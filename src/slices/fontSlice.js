@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 export const counterSlice = createSlice({
   name: 'counter',
   initialState: {
-    fontSize : 12,
+    fontSize : 14,
     fontWeight : 300,
     unit : 'px'
   },

@@ -3,8 +3,8 @@ import { createSlice } from '@reduxjs/toolkit'
 export const counterSlice = createSlice({
   name: 'counter',
   initialState: {
-    paddingX : 15 ,
-    paddingY : 8,
+    paddingX : 20 ,
+    paddingY : 14,
     unit : 'px',
     editType : 1
   },

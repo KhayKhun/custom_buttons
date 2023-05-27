@@ -5,9 +5,11 @@ const DemoComponent = () => {
     const reduxStyles = useSelector((state)=> state.borderReducer);
     const sizingState = useSelector((state)=> state.sizingReducer);
     const fontState = useSelector((state)=> state.fontReducer);
+    const shadowState = useSelector((state)=> state.shadowReducer);
+
     const borderRadius = reduxStyles.borderRadius
   return (
-    <button id='demo' className={`bg-blue-500 text-white
+    <button id='demo' className={`bg-blue-500 text-white 
       ${borderRadius.onEdit == 4 ?
           borderRadius.topLeft != 0?
               Number(borderRadius.topLeft) ?
@@ -77,6 +79,13 @@ const DemoComponent = () => {
               Number(fontState.fontWeight)?
                 ''
               : 'font-'+fontState.fontWeight 
+          : '' 
+        : ''}
+        ${shadowState.shadow ?
+          shadowState.shadow != '' ?
+              shadowState.shadow == 'none'?
+                ''
+              : 'shadow-'+shadowState.shadow 
           : '' 
         : ''}
 

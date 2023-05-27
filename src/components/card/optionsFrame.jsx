@@ -47,7 +47,7 @@ const OptionsFrame = (prop) => {
               type="range"
               min={propData.MIN ? propData.MIN : 0}
               max={propData.MAX ? propData.MAX :50}
-              value={Number(propData.VALUE) ? propData.VALUE : 10}
+              value={Number(propData.VALUE) ? propData.VALUE : 0}
               className={`${activeButton === null ? '' : 'hidden'}`}
               onChange={(event) => {
                 dispatch(propData.UPDATE_FUNCTION(event.target.value));
@@ -56,7 +56,7 @@ const OptionsFrame = (prop) => {
             <input
               id={`input${propData.KEY}`}
               type="number"
-              value={Number(propData.VALUE) ? propData.VALUE : 10}
+              value={Number(propData.VALUE) ? propData.VALUE : 0}
               className="w-[60px] border h-[70%] p-[5px] rounded-lg"
               min={propData.MIN ? propData.MIN : 0}
               max={propData.MAX ? propData.MAX : 50}

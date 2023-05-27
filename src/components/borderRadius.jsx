@@ -107,6 +107,8 @@ const BorderRadiusComponent = () => {
         demo.style.borderTopRightRadius = br.topRight + br.topRightUnit;
         demo.style.borderBottomLeftRadius = br.bottomLeft + br.bottomLeftUnit;
         demo.style.borderBottomRightRadius = br.bottomRight + br.bottomRightUnit;
+
+        // demo.style.boxShadow = '0 25px 50px -12px rgb(0 0 0 / 0.25)';
     },[borderState])
     const optionData = {
         options : data.borderRadius.options,
