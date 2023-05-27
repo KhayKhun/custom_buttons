@@ -1,9 +1,9 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-const FooterComponent = () => {
-    const reduxStyles = useSelector(state=> state.styles)
+const CodeOutputComponent = () => {
+    const reduxStyles = useSelector(state=> state.borderReducer)
   return (
-    <footer className='w-screen bg-gray-800 fixed bottom-0 flex py-[10px] overflow-x-scroll'>
+    <footer className='w-screen bg-gray-800 fixed left-0 bottom-0 flex py-[10px]'>
         <code className='text-sm inline text-white'>
             &lt;
             <span className='text-red-500'>button </span> 
@@ -20,4 +20,4 @@ const FooterComponent = () => {
   )
 }
 
-export default FooterComponent
+export default CodeOutputComponent

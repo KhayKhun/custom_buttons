@@ -1,6 +1,13 @@
 {
+    "sidebar" : [
+        {"name" : "Color" , "to" : "color"},
+        {"name" : "Typo" , "to" : "typo"},
+        {"name" : "Padding" , "to" : "padding"},
+        {"name" : "Border" , "to" : "border"},
+        {"name" : "Border-Radius" , "to" : "border-radius"},
+        {"name" : "Shadow" , "to" : "shadow"}
+    ],
     "borderRadius" : {
-        "editTypes" : [4,2],
         "static" : [
             {"name" : "sm","value" : 2},
             {"name" : "md","value" : 6},
@@ -10,6 +17,57 @@
             {"name" : "3xl","value" : 24},
             {"name" : "full","value" : 9999}
         ],
-        "custom" : ["px","%"]
+        "custom" : ["px","%"],
+        "options" : [
+            {"name" : "Balance","value" : 4},
+            {"name" : "Advance","value" : 2}
+        ]
+    },
+    "padding" : {
+        "static" : [
+            {"name" : "_0","value" : 0},
+            {"name" : "_1","value" : 4},
+            {"name" : "_2","value" : 8},
+            {"name" : "_3","value" : 12},
+            {"name" : "_4","value" : 16},
+            {"name" : "_5","value" : 20},
+            {"name" : "_6","value" : 24},
+            {"name" : "_7","value" : 28},
+            {"name" : "_8","value" : 32},
+            {"name" : "_9","value" : 36}
+        ],
+        "custom" : ["px"],
+        "options" : [
+            {"name" : "Balance","value" : 1},
+            {"name" : "Advance","value" : 2}
+        ]
+    },
+    "fontSize" : {
+        "static" : [
+            {"name" : "xs","value" : 12},
+            {"name" : "sm","value" : 14},
+            {"name" : "base","value" : 16},
+            {"name" : "lg","value" : 18},
+            {"name" : "xl","value" : 20},
+            {"name" : "2xl","value" : 24},
+            {"name" : "3xl","value" : 30},
+            {"name" : "4xl","value" : 36},
+            {"name" : "5xl","value" : 48},
+            {"name" : "6xl","value" : 60}
+        ],
+        "custom" : ["px"]
+    },
+    "fontWeight" : {
+        "static" : [
+            {"name" : "thin","value" : 100},
+            {"name" : "extralight","value" : 200},
+            {"name" : "light","value" : 300},
+            {"name" : "normal","value" : 400},
+            {"name" : "medium","value" : 500},
+            {"name" : "semibold","value" : 600},
+            {"name" : "bold","value" : 700},
+            {"name" : "extrabold","value" : 800},
+            {"name" : "black","value" : 900}
+        ]
     }
 }

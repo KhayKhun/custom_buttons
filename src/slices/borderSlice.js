@@ -27,6 +27,11 @@ export const counterSlice = createSlice({
       state.borderRadius.bottomLeft = action.payload
       state.borderRadius.topRight = action.payload
       state.borderRadius.bottomRight = action.payload
+
+      state.borderRadius.topLeftUnit = state.borderRadius.unit
+      state.borderRadius.bottomLeftUnit = state.borderRadius.unit
+      state.borderRadius.topRightUnit = state.borderRadius.unit
+      state.borderRadius.bottomRightUnit = state.borderRadius.unit
     },
     updateBorderRadiusTL: (state,action) => {
       state.borderRadius.topLeft = action.payload
@@ -57,6 +62,11 @@ export const counterSlice = createSlice({
     },
     updateBorderRadiusUnit: (state,action) => {
       state.borderRadius.unit = action.payload
+      
+      state.borderRadius.topLeftUnit = state.borderRadius.unit
+      state.borderRadius.bottomLeftUnit = state.borderRadius.unit
+      state.borderRadius.topRightUnit = state.borderRadius.unit
+      state.borderRadius.bottomRightUnit = state.borderRadius.unit
     },
     updateTailwindCode: (state,action) => {
       state.tailwindCode = action.payload

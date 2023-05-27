@@ -1,7 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
-import styleReducer from './slices/styleSlice'
+import borderReducer from './slices/borderSlice'
+import sizingReducer from './slices/sizingSlice'
+import fontReducer from './slices/fontSlice'
 export default configureStore({
   reducer: {
-    styles : styleReducer
+    borderReducer : borderReducer,
+    sizingReducer : sizingReducer,
+    fontReducer : fontReducer
   },
 })

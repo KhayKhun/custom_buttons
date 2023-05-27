@@ -6,7 +6,58 @@
   input{
     @apply focus:outline-none
   }
+  li{
+    @apply hover:cursor-pointer hover:underline
+  }
   .small-btn{
-    @apply p-[10px] rounded-lg border-2 border-gray-300 cursor-pointer
+    @apply p-[8px] text-sm border text-gray-600 bg-gray-100 cursor-pointer
+  }
+  .small-btn.active{
+    @apply bg-fuchsia-500 text-white
+  }
+  .small-btn.on{
+    @apply bg-white text-black border-b-0 border-l-0
+  }
+  .small-unit{
+    @apply p-[7px] text-sm border border-gray-50 text-gray-600 bg-gray-200 cursor-pointer
+  }
+  .small-unit.active{
+    @apply bg-emerald-500 text-white
+  }
+  .option{
+    @apply opacity-[1] 
+  }
+}
+/* Enable scrollbar customization */
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.alert{
+  animation-name: alert;
+  animation-duration: 1s;
+  animation-delay: 0.4s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes alert {
+  from{
+    background-color: rgb(233, 132, 132);
+  }to{
+    background-color: rgb(207, 194, 194);
   }
 }

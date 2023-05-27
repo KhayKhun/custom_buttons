@@ -14,34 +14,40 @@ import {
     updateBorderRadiusBLUnit,
     updateBorderRadiusBRUnit,
 
-} from '../slices/styleSlice'
+} from '../slices/borderSlice'
 import data from '../data.json'
 import OptionsFrame from './card/optionsFrame'
+import ChoiceFrameComponent from './card/choiceFrame'
 
 const BorderRadiusComponent = () => {
-    const reduxStyles = useSelector(state => state.styles)
+    const borderState = useSelector(state => state.borderReducer)
     const dispatch = useDispatch();
     const allSide = {
-        TITLE : 'BorderRadius : ',
-        EDIT_TYPES : data.borderRadius.editTypes,
+        KEY : 'all',
+        TITLE : 'All side',
         STATIC : data.borderRadius.static,
-        ON_EDIT :reduxStyles.borderRadius.onEdit,
-        VALUE : reduxStyles.borderRadius.topLeft,
+        VALUE : borderState.borderRadius.topLeft,
+        UNIT : borderState.borderRadius.unit,
         CUSTOM : data.borderRadius.custom,
         UPDATE_FUNCTION : (prop) => updateBorderRadius(prop),
         UPDATE_TYPES_FUNCTION : (prop) => updateBorderRadiusEditTypes(prop),
         UPDATE_UNIT_FUNCTION : (prop) => updateBorderRadiusUnit(prop),
         UPDATE_DEMO_FUNCTION : (prop) => {
             const demo = document.getElementById('demo');
-            demo.style.borderRadius = prop+'px';
+
+            demo.style.borderTopLeftRadius = prop+ borderState.borderRadius.unit;
+            demo.style.borderTopRightRadius = prop+ borderState.borderRadius.unit;
+            demo.style.borderBottomLeftRadius = prop+ borderState.borderRadius.unit;
+            demo.style.borderBottomRightRadius = prop+ borderState.borderRadius.unit;
         }
     }
-    const TL = {
-        TITLE : 'BorderRadius Top-Left: ',
-        EDIT_TYPES : data.borderRadius.editTypes,
+    const fourAngles = [
+    {
+        KEY :"TL",
+        TITLE : 'top-left: ',
         STATIC : data.borderRadius.static,
-        ON_EDIT :reduxStyles.borderRadius.onEdit,
-        VALUE : reduxStyles.borderRadius.topLeft,
+        VALUE : borderState.borderRadius.topLeft,
+        UNIT : borderState.borderRadius.topLeftUnit,
         CUSTOM : data.borderRadius.custom,
         UPDATE_FUNCTION : (prop) => updateBorderRadiusTL(prop),
         UPDATE_UNIT_FUNCTION : (prop) => updateBorderRadiusTLUnit(prop),
@@ -49,13 +55,13 @@ const BorderRadiusComponent = () => {
             const demo = document.getElementById('demo');
             demo.style.borderTopLeftRadius = prop+'px';
         }
-    }
-    const TR = {
-        TITLE : 'BorderRadius Top-Right: ',
-        EDIT_TYPES : data.borderRadius.editTypes,
+    },
+    {
+        KEY :"TR",
+        TITLE : 'top-right: ',
         STATIC : data.borderRadius.static,
-        ON_EDIT :reduxStyles.borderRadius.onEdit,
-        VALUE : reduxStyles.borderRadius.topRight,
+        VALUE : borderState.borderRadius.topRight,
+        UNIT : borderState.borderRadius.topRightUnit,
         CUSTOM : data.borderRadius.custom,
         UPDATE_FUNCTION : (prop) => updateBorderRadiusTR(prop),
         UPDATE_UNIT_FUNCTION : (prop) => updateBorderRadiusTRUnit(prop),
@@ -63,13 +69,13 @@ const BorderRadiusComponent = () => {
             const demo = document.getElementById('demo');
             demo.style.borderBottomRightRadius = prop+'px';
         }
-    }
-    const BL = {
-        TITLE : 'BorderRadius Bottom-Left: ',
-        EDIT_TYPES : data.borderRadius.editTypes,
+    },
+    {
+        KEY :"BL",
+        TITLE : 'bottom-left: ',
         STATIC : data.borderRadius.static,
-        ON_EDIT :reduxStyles.borderRadius.onEdit,
-        VALUE : reduxStyles.borderRadius.bottomLeft,
+        VALUE : borderState.borderRadius.bottomLeft,
+        UNIT : borderState.borderRadius.bottomLeftUnit,
         CUSTOM : data.borderRadius.custom,
         UPDATE_FUNCTION : (prop) => updateBorderRadiusBL(prop),
         UPDATE_UNIT_FUNCTION : (prop) => updateBorderRadiusBLUnit(prop),
@@ -77,13 +83,13 @@ const BorderRadiusComponent = () => {
             const demo = document.getElementById('demo');
             demo.style.borderBottomLeftRadius = prop+'px';
         }
-    }
-    const BR = {
-        TITLE : 'BorderRadius Bottom-Right: ',
-        EDIT_TYPES : data.borderRadius.editTypes,
+    },
+    {
+        KEY : 'BR',
+        TITLE : 'bottom-right: ',
         STATIC : data.borderRadius.static,
-        ON_EDIT :reduxStyles.borderRadius.onEdit,
-        VALUE : reduxStyles.borderRadius.bottomRight,
+        VALUE : borderState.borderRadius.bottomRight,
+        UNIT : borderState.borderRadius.bottomRightUnit,
         CUSTOM : data.borderRadius.custom,
         UPDATE_FUNCTION : (prop) => updateBorderRadiusBR(prop),
         UPDATE_UNIT_FUNCTION : (prop) => updateBorderRadiusBRUnit(prop),
@@ -91,40 +97,30 @@ const BorderRadiusComponent = () => {
             const demo = document.getElementById('demo');
             demo.style.borderBottomRightRadius = prop+'px';
         }
-    }
+    }]
     
     useEffect(()=>{
         const demo = document.getElementById('demo');
+        const br = borderState.borderRadius    
         dispatch(updateTailwindCode(demo.classList.value));
-        demo.style.borderTopLeftRadius = reduxStyles.borderRadius.topLeft + reduxStyles.borderRadius.topLeftUnit;
-        demo.style.borderTopRightRadius = reduxStyles.borderRadius.topRight + reduxStyles.borderRadius.topRightUnit;
-        demo.style.borderBottomLeftRadius = reduxStyles.borderRadius.bottomLeft + reduxStyles.borderRadius.bottomLeftUnit;
-        demo.style.borderBottomRightRadius = reduxStyles.borderRadius.bottomRight + reduxStyles.borderRadius.bottomRightUnit;
-    },[reduxStyles])
+        demo.style.borderTopLeftRadius = br.topLeft + br.topLeftUnit;
+        demo.style.borderTopRightRadius = br.topRight + br.topRightUnit;
+        demo.style.borderBottomLeftRadius = br.bottomLeft + br.bottomLeftUnit;
+        demo.style.borderBottomRightRadius = br.bottomRight + br.bottomRightUnit;
+    },[borderState])
+    const optionData = {
+        options : data.borderRadius.options,
+        onEdit : borderState.borderRadius.onEdit,
+        DISPATCH_FUNCTION : (para)=> dispatch(updateBorderRadiusEditTypes(para))
+    }
 return (
-    <div>
+    <div id='border-radius' className=''>
         <h1>Border Radius</h1>
-        <ul className='flex'>
-            {
-                data.borderRadius.editTypes.map(e => <li key={e} className="small-btn" onClick={()=>{
-                    dispatch(updateBorderRadiusEditTypes(e))
-                }}>{e}</li>)
-            }
-        </ul>
+        <ChoiceFrameComponent data={optionData}/>
         {
-            reduxStyles.borderRadius.onEdit == 4 ? 
+            borderState.borderRadius.onEdit == 4 ? 
                 <OptionsFrame data={allSide}/>
-            : null
-        }
-        {
-            reduxStyles.borderRadius.onEdit == 2 ? 
-                <>
-                    <OptionsFrame data={TL}/>
-                    <OptionsFrame data={TR}/>
-                    <OptionsFrame data={BL}/>
-                    <OptionsFrame data={BR}/>
-                </>
-            : null
+            : fourAngles.map((f)=> <OptionsFrame key={f.KEY} data={f}/>)
         }
     </div>
   )
