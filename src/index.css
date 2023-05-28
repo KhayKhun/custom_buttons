@@ -53,7 +53,9 @@
   animation-delay: 0.4s;
   animation-iteration-count: infinite;
 }
-
+#dem{
+  box-shadow: inset 3px 3px 3px black;
+}
 @keyframes alert {
   from{
     background-color: rgb(233, 132, 132);

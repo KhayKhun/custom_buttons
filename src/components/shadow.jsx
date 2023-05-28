@@ -16,15 +16,22 @@ const ShadowComponent = () => {
         UPDATE_FUNCTION : (prop) => updateShadow(prop),
         UPDATE_DEMO_FUNCTION : (prop) => {
           const demo = document.getElementById('demo');
-          console.log(prop);
-          demo.style.boxShadow = prop;
-        }
+          console.log(prop)
+          {prop == 'inner' ? 
+            demo.classList.add('shadow-inner','shadow-black') 
+            :
+            demo.classList.add(`shadow-md`,'shadow-black')}
     }
+  }
     useEffect(() => {
       const demo = document.getElementById('demo');
       dispatch(updateTailwindCode(demo.classList.value));
-    
-      demo.style.boxShadow = shadowState.shadow;
+
+      // if(shadowState.shadow == 'inner'){
+      //   demo.classList.add('shadow-inner','shadow-black')
+      // }else{
+      //   demo.classList.remove('shadow-inner')
+      // }
     })
   return (
     <div id='shadow'>

@@ -81,13 +81,8 @@ const DemoComponent = () => {
               : 'font-'+fontState.fontWeight 
           : '' 
         : ''}
-        ${shadowState.shadow ?
-          shadowState.shadow != '' ?
-              shadowState.shadow == 'none'?
-                ''
-              : 'shadow-'+shadowState.shadow 
-          : '' 
-        : ''}
+
+        ${shadowState.shadow != 'none' ? 'shadow-'+shadowState.shadow :''}
 
         `}>{reduxStyles.innerText}</button>
   )

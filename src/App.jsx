@@ -16,11 +16,14 @@ function App() {
     <main className='w-screen h-screen overflow-hidden bg-gray-100'>
       <SideMenuComponent/>
       <div className='w-[60vw] flex flex-col h-screen overflow-y-scroll py-[20px] fixed top-[40px] left-[15vw] px-[10px]'>
-        <input id='inner-text' type="text" max={15} min={4} placeholder="Demo"
-          className="border border-gray-700 w-[100px]"
-          onChange={(e)=>{
-            dispatch(updateInnerText(e.target.value))
-          }}/>
+        <div id='inner-text'>
+          <span>InnerText : </span>
+          <input type="text" max={15} min={4} placeholder="Demo"
+            className="border border-gray-700 w-[100px]"
+            onChange={(e)=>{
+              dispatch(updateInnerText(e.target.value))
+            }}/>
+        </div>
         <FontComponent/>
         <hr />
         <PaddingComponent/>

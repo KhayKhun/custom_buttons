@@ -19,6 +19,7 @@ const SideMenuComponent = () => {
               >{side.name}</li>)
             }
         </ul>
+        <button className="bg-blue-500 text-white p-[20px] text-[14px] shadow-inner shadow-blue-900">Demo</button>
     </div>
   )
 }

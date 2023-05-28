@@ -9,7 +9,9 @@ const OptionsFrame = (prop) => {
   const handleButtonClick = (b) => {
     setActiveButton(b.name);
     dispatch(propData.UPDATE_FUNCTION(b.name));
-    propData.UPDATE_DEMO_FUNCTION(b.value);
+    setTimeout(()=>{
+      propData.UPDATE_DEMO_FUNCTION(b.value);
+    },1)
   };
 
   const handleCustomButtonClick = () => {
